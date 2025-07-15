@@ -1,0 +1,5 @@
+-Crie uma página para uma música ou poema.
+-No título do documento (title) deverá ter o nome da musica ou poema 
+-Para o corpo da página (body) crie as tags de conteúdo 
+- h1 e h2 para os títulos 
+- p e br para as estrofes e os versos
