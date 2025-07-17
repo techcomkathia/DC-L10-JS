@@ -3,3 +3,8 @@
 -Para o corpo da página (body) crie as tags de conteúdo 
 - h1 e h2 para os títulos 
 - p e br para as estrofes e os versos
+
+
+- Inclua uma lista não ordenada com mas músicas desse cantor(a)/banda
+- Inclua uma lista com o top 3 músicas preferidas do cantor(a)/banda
+- Selecione 3 nomes de músicas e faça a definição delas 
