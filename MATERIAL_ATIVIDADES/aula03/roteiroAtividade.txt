@@ -1,0 +1,38 @@
+- arquivo index.html
+- crie uma lista com os links para as páginas dos filmes.
+
+<ul>
+    <li> link para o primeiro filme </li>
+    <li> link para o segundo filme </li>
+
+    ...
+    <li> link para o último filme </li>
+</ul>
+
+- para cada arquivo html de filme ( página de filme) teremos a seguinte estrutura:
+título com o nome do filme
+imagem com o nome do filme
+parágrafo com snopse do filme 
+2 links:
+    - para o youtube
+    - para o resumo do filme
+
+
+Teremos a seguinte estrutura de arquivos:
+pastaPrincipalProjeto
+    pastaImagens
+        -imagemfilme1
+        -imagemfilme2
+        -imagemfilme3
+        -imagemfilme4
+        -imagemfilme5
+        -imagemfilme5
+    index.html
+    filme1.html
+    filme2.html
+    filme3.html
+    filme4.html
+    filme5.html
+    filme6.html
+
+- Importante, cada página terá um título principal. Caso seja necessário subtítulos podem ser usados (h2, h3 ... h6)
