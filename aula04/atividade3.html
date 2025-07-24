@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <p>O item 4 e 5 tem que ter 15% de desconto e uma célula so pros dois, mesclada usando o rowspan. </p>
+
+    <table>
+        <tr>
+            <th>Codigo Produto</th>
+            <th>Nome Produto</th>
+            <th>Preço Produto</th>
+            <th>Desconto</th>
+            <th>Quantidade Produto</th>
+        </tr>
+        <tr>
+            <td>001</td>
+            <td>Arroz</td>
+            <td>R$23,50</td>
+            <td>5%</td>
+            <td>03</td>
+        </tr>
+        <tr>
+            <td>002</td>
+            <td>Feijão</td>
+            <td>R$15,20</td>
+            <td>10%</td>
+            <td>02</td>
+        </tr>
+        <tr>
+            <td>003</td>
+            <td>Macarrão</td>
+            <td colspan="2">R$8,00</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>004</td>
+            <td>Tomate</td>
+            <td>R$3,90</td>
+            <td rowspan="2">15%</td>
+            <td>05</td>
+        </tr>
+        <tr>
+            <td>005</td>
+            <td>Energetico</td>
+            <td>R$9,50</td>
+            <td>06</td>
+        </tr>
+
+    
+    </table>
+    
+</body>
+</html>
