@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Formulário</h1>
+
+    <form>
+        <label for="nomeUsuario">NOME</label>
+        <br>
+        <input type="text" id="nomeUsuario" name="nomeUsuario" placeholder="Dica de preechimento">
+
+        <br>
+
+        <label for="emailUsuario">EMAIL</label>
+        <br>
+        <input type="email" id="emailUsuario" name="emailUsuario">
+
+        <br>
+
+        <label for="numeroUsuario">NUMERO</label>
+        <br>
+        <input type="number" id="numeroUsuario">
+
+        <br>
+
+        <label for="senhaUsuario">SENHA</label>
+        <br>
+        <input type="password" id="senhaUsuario" name="senhaUsuario">
+
+        <br>
+
+        <label for="nascimento">Data de nascimento</label>
+        <br>
+        <input type="date" id="nascimento" name="nascimento">
+
+        <br>
+
+        <label for="corFavorita">Cor favorita</label><input type="color" id="corFavorita"></label>
+
+        <br>
+
+        <label for="curriculo">Curriculo</label>
+       <input type="file" id="curriculo" name="curriculo" accept="application/pdf">
+
+        <br>
+
+        <label for="turno"> Turno</label>
+        <br>
+
+        <input type="radio" id="manha" name="turno" value="manha">         
+        <label for="manha"> Manhã</label>
+
+        <br>
+
+        <input type="radio" id="tarde" name="turno" value="tarde"> 
+        <label for="tarde"> Tarde</label>
+        
+        <br>
+
+        <input type="radio" id="noite" name="turno" value="noite"> 
+        <label for="noite"> Noite</label>
+
+        <br>
+
+        <label for="">Linguagens</label>
+
+        <br>
+
+        <input type="checkbox" id="html" name="linguagens" value="html">
+        <label for="html">HTML</label>
+
+        <br>
+
+        <input type="checkbox" id="css" name="linguagens" value="css">
+        <label for="css">CSS</label>
+
+        <br>    
+
+        <input type="checkbox" id="js" name="linguagens" value="js">
+        <label for="js">JAVASCRIPT</label>
+
+        <br>
+
+        <label for="">Digite sua reclamação</label>
+
+        <br>
+
+        <textarea name="reclamacao" id="reclamacao" cols="30" rows="10" maxlength="3"></textarea>
+
+        <br>
+        <label for="Escolha uma linguagem">Escolha uma linguagem</label>
+
+        <select name="linguagem" id="linguagem">
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="js" selected>JAVASCRIPT</option>
+            <option value="php">PHP</option>
+            <option value="python">Python</option>
+            <option value="java" disabled>Java</option>
+            <option value="c#">C#</option>
+        </select>
+
+
+        <br>
+
+        <input type="submit">
+
+        <br>
+
+        <input type="button" value="Clique aqui para enviar" id="botaoEnviar" onclick="alert('Clicou no botão')">
+
+        <br>
+
+        <button>Clique aqui</button>
+
+    </form>
+    
+</body>
+</html>
