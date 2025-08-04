@@ -1,0 +1,51 @@
+/* seletor por tag */
+/*  */
+
+
+li{
+    color:crimson;
+    background-color:aquamarine ;
+}
+
+
+a{
+    color: rgb(123, 24, 24);
+    text-decoration: none;
+}
+
+img{
+    width: 500px;
+}
+
+
+/* seletor por lista */
+
+h1, h2, p{
+    color: orange;
+    background-color: black;
+}
+
+h1{
+    text-align: center;
+}
+
+p{
+    text-align: justify;
+}
+
+/* seletor por classe . */
+.minhaClasse{
+    font-size: 30px;
+    background-color: blue;
+}
+
+
+/* seletor por ID # */
+
+#especial{
+    background-color: darkmagenta;
+}
+
+
+/* regra de prevalencia de estilo 
+tag < class < id*/

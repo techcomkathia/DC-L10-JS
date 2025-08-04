@@ -4,19 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- <style>
+        /* o conteudo da tag style é escrito em css */
+        /* internal css. Afeta todas as tags, ou classes ou ids que estejam na mesma pagina. Aplicando o estilo em castata */
+        li{
+            color:blue
+        }
+    </style> -->
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- crie as divisões header, main e footer para a página da receita -->
+    <!-- o header deve o Nome do site  -->
+    <!-- main deve conter todo o conteudo da receita -->
+    <!-- footer deve conter o autor da receita e o ano ( direitos reservados) -->
+    <!-- Correção de 19:50 -->
+    <!-- link da base da receita no chat -->
+
     <header>
-
-        <h1>Receitas da Palmirinha</h1>
-
-
+        <!-- css inline- estiliza apenas a tag que estiver com esse atributo -->
+        <h1 style="color:red">Receitas da Palmirinha</h1>
 
         <nav>
             <ul>
                 <li><a href="#ingredientes">Igredientes</a></li>
-                <li><a href="#preparoCalda">Preparo da Calda</a></li>
+                <li class="minhaClasse"><a href="#preparoCalda">Preparo da Calda</a></li>
                 <li><a href="#preparoCreme">Preparo do Creme</a></li>
                 <li><a href="#montagem">Montagem</a></li>
             </ul>
@@ -27,52 +41,65 @@
 
     <main>
         <h1>Receita de Pavê</h1>
+        <p class="minhaClasse" id="especial">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque et at eveniet? Pariatur quibusdam sed vel asperiores praesentium consectetur impedit dolorem sit et magni temporibus deleniti, nihil excepturi quas illum eaque fugiat? Facilis aut, sint aspernatur, cum placeat voluptatibus autem culpa rerum veritatis, omnis ad amet id neque tempora similique!</p>
+        <div>
+            <div>
+                <img src="https://i.ytimg.com/vi/B_XlSAUg3lQ/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDJHRvbhH8PTh2RjclOrqw0uLFiOw" alt="pavê de chocolate" width="700" >
+            </div>
 
-        <img src="https://i.ytimg.com/vi/B_XlSAUg3lQ/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDJHRvbhH8PTh2RjclOrqw0uLFiOw" alt="pavê de chocolate" width="700" >
+            <div>
+                <h2 id="ingredientes">Lista de ingredientes</h2>
+                <ul>
+                    <li>1 lata de leite condensado</li>
+                    <li>300 mililitros de leite</li>
+                    <li>4 ovos</li>
+                    <li>1 colher de sopa de amido de milho</li>
+                    <li>6 colheres de sopa de açúcar</li>
+                    <li>1 lata de creme de leite sem soro</li>
+                    <li>220 gramas de biscoito maisena</li>
+                    <li>Chocolate em barra a gosto</li>
+                </ul>
+            </div>
+        </div>
 
-        <h2 id="ingredientes">Lista de ingredientes</h2>
+        <div>
+            <h2>Modo de Preparo</h2>
 
-        <ul>
-            <li>1 lata de leite condensado</li>
-            <li>300 mililitros de leite</li>
-            <li>4 ovos</li>
-            <li>1 colher de sopa de amido de milho</li>
-            <li>6 colheres de sopa de açúcar</li>
-            <li>1 lata de creme de leite sem soro</li>
-            <li>220 gramas de biscoito maisena</li>
-            <li>Chocolate em barra a gosto</li>
-        </ul>
+            <div>
+                <h3 id="preparoCreme">Creme</h3>
+                <ol>
+                    <li>Em um recipiente, dissolva 1 colher de amido de milho em 300 mililitros de leite.</li>
+                    <li>Coloque o amido de milho diluído no leite em uma panela e ligue o fogo.</li>
+                    <li>Acrescente 1 lata de leite condensado.</li>
+                    <li>Adicione 4 gemas de ovos.</li>
+                    <li>Mexa a mistura de ingredientes até ferver.</li>
+                    <li>Misture até ficar com consistência de creme.</li>
+                </ol>
+            </div>
 
-        <h2>Modo de Preparo</h2>
-        <h3 id="preparoCreme">creme</h3>
+            <div>
+                <h3 id="preparoCalda">Cobertura</h3>
+                <ol>
+                    <li>Na batedeira, coloque 4 claras de ovos e 6 colheres de sopa de açúcar.</li>
+                    <li>Bata até chegar em ponto de neve.</li>
+                    <li>Acrescente 1 lata de creme de leite sem soro e bata bem.</li>
+                </ol>
+            </div>
 
-        <ol>
-            <li>Em um recipiente, dissolva 1 colher de amido de milho em 300 mililitros de leite.</li>
-            <li>Coloque o amido de milho diluído no leite em uma panela e ligue o fogo.</li>
-            <li>Acrescente 1 lata de leite condensado.</li>
-            <li>Adicione 4 gemas de ovos.</li>
-            <li>Mexa a mistura de ingredientes até ferver.</li>
-            <li>Misture até ficar com consistência de creme.</li>
-        </ol>
-
-        <h3 id="preparoCalda">Cobertura</h3>
-
-        <ol>
-            <li>Na batedeira, coloque 4 claras de ovos e 6 colheres de sopa de açúcar.</li>
-            <li>Bata até chegar em ponto de neve.</li>
-            <li>Acrescente 1 lata de creme de leite sem soro e bata bem.</li>
-        </ol>
-
-        <h3 id="montagem">Montagem</h3>
-        <ol>
-            <li>Molhe uma parte dos biscoitos no leite e forre um refratário, formando a primeira camada.</li>
-            <li>Cubra os biscoitos com o creme, e faça camadas intercalando o creme com os biscoitos.</li>
-            <li>Finalize com uma última camada da cobertura feita na batedeira.</li>
-            <li>Leve à geladeira por 3 horas.</li>
-            <li>Antes de servir, finalize o pavê simples com raspas de chocolate.</li>
-            <li>Bom apetite! AUAUAUAUAUAU </li>
-        </ol>
+            <div>
+                <h3 id="montagem">Montagem</h3>
+                <ol>
+                    <li>Molhe uma parte dos biscoitos no leite e forre um refratário, formando a primeira camada.</li>
+                    <li>Cubra os biscoitos com o creme, e faça camadas intercalando o creme com os biscoitos.</li>
+                    <li>Finalize com uma última camada da cobertura feita na batedeira.</li>
+                    <li>Leve à geladeira por 3 horas.</li>
+                    <li>Antes de servir, finalize o pavê simples com raspas de chocolate.</li>
+                    <li>Bom apetite! AUAUAUAUAUAU </li>
+                </ol>
+            </div>
+        </div>
     </main>
+    
 
 
     <footer>
@@ -80,12 +107,7 @@
         <p>Todos os Direitos reservados ©2025</p>
     </footer>
     
-    <!-- crie as divisões header, main e footer para a página da receita -->
-    <!-- o header deve o Nome do site  -->
-    <!-- main deve conter todo o conteudo da receita -->
-    <!-- footer deve conter o autor da receita e o ano ( direitos reservados) -->
-    <!-- Correção de 19:50 -->
-    <!-- link da base da receita no chat -->
+
 
 
    
