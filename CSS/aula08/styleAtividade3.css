@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+/* <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -33,3 +33,46 @@
     </section>
 </body>
 </html>
+
+Atividade 3: Tipografia e Modelo de Caixa no Estilizando Ícones Culturais
+Tempo estimado: 15 minutos
+Nessa atividade, você irá aplicar os conceitos de tipografia (fontes) e modelo de caixa (margem, padding e borda) ao conteúdo da página. Vamos trabalhar fontes externas, cores, tamanhos, alinhamentos, espaçamentos internos e externos e bordas.
+
+Instruções:
+1. Tipografia:
+a) Importe uma fonte externa do Google Fonts chamada "Poppins" e aplique em todo o conteúdo da página.
+b) No título principal da página:
+    Defina um tamanho grande (50px).
+    Aplique uma cor em hexadecimal #4B0082 (roxo escuro).
+    Alinhe o título ao centro da página.
+c) Nos subtítulos das seções ("Grávida de Taubaté" e "O Enigma do Menino do Acre"):
+    Defina um tamanho de 35px.
+    Altere a cor para #FF6347 (tomate).
+    Deixe o texto em negrito.
+    Alinhe o texto à esquerda.
+d) Nos parágrafos com a classe "intro":
+    Aplique uma cor cinza #333333.
+    Deixe o texto com um peso de fonte mais leve (fino) 150.
+    Defina um tamanho de 18px.
+    Alinhe o texto à justificado.
+e) Nos demais parágrafos :
+    Aplique uma cor #555555.
+    Defina o tamanho de 16px.
+
+2. Modelo de Caixa (Margins, Padding e Bordas):
+
+a) Na imagem principal de cada seção (Grávida de Taubaté e Menino do Acre) , utilize a classe:
+    Aplique um espaçamento externo (margem) de 30px embaixo.
+    Adicione uma borda contínua de 20px na lateral esquerda, com a cor #008080 (teal/verdo-azulado).
+b) Na div que envolve os memes (classe "caixa-meme"):
+    Aplique um padding interno de 20px.
+    Adicione uma borda contínua de 20px em todos os lados, com a cor #DAA520 (dourado).
+    Adicione uma margem externa de 20px em todos os lados.
+
+c) Em todas as seções:
+    Adicione um espaçamento externo (margem superior) de 40px para separar visualmente uma seção da outra. Adicione um background de uma cor da sua preferencia. 
+
+Observações:
+Utilize um arquivo externo de css para adicionar todas as regras de estilo.
+Não é necessário alterar o conteúdo HTML.
+Foque em visualizar a hierarquia visual (títulos grandes e centralizados, subtítulos destacados, parágrafos organizados e imagens bem separadas).  */
