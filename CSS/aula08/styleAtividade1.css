@@ -1,0 +1,24 @@
+/* Tempo estimado: 15 minutos
+Você irá aplicar estilos para praticar os conceitos de tamanho da fonte, cor em hexadecimal, importação de fontes externas, alinhamento e peso (espessura) da fonte.
+
+Instruções:
+1. Importe uma fonte externa do Google Fonts chamada "Roboto" e aplique em todo o conteúdo da página.
+
+2. Altere o tamanho da fonte do título principal (título maior) para um valor que o destaque visualmente (utilize o valor de 36px).
+
+3. Para os subtítulos (menores que o título principal), defina um tamanho que mantenha a hierarquia, mas seja menor que o título principal (utilize 24px).
+
+4. Para os parágrafos comuns, utilize um tamanho confortável para leitura (defina como 16px).
+
+5. Altere a cor do título principal para um tom de azul (use o código hexadecimal #1E90FF).
+
+6. Mude a cor dos subtítulos para um tom de verde (use o código hexadecimal #228B22).
+
+7. Altere a cor dos parágrafos para um tom de cinza (use o código hexadecimal #555555).
+
+8. No subtítulo “Alinhamento e Peso: Detalhes que Fazem a Diferença” utilize a classe destaque-titulo e destaque-texto:
+
+    a. Alinhe o texto ao centro da página.
+    b. Aplique um peso mais espesso (800) para destacá-lo e deixar ele negrido.
+
+9. No parágrafo logo abaixo deste subtítulo, alinhe o texto à esquerda e utilize um peso mais leve (fino). */
