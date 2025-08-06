@@ -1,0 +1,22 @@
+/* Atividade 2: Explorando o Modelo de Caixa (margin, padding e bordas)
+Tempo estimado: 15 minutos
+Você irá aplicar estilos para praticar os conceitos de espaçamento externo (margem), espaçamento interno (padding) e bordas em diferentes elementos da página.
+
+
+1. No título principal da página h1:
+    Aplique um espaçamento externo (margem) de 40 pixels em todos os lados e um background preto e uma fonte branca. 
+
+2. Nos parágrafos : 
+    Aplique um espaçamento interno (padding) de 20 pixels em todos os lados, dando "respiro" ao texto dentro da área do parágrafo.
+    Coloque uma linha (borda) apenas na extremidade inferior do parágrafo. Esta borda deve ter uma espessura de 2 pixels, ser contínua (sólida) e de cor #FF4500 (laranja escuro).
+
+3. Nos subtítulos h2 :
+    Adicione uma borda contínua de 2 pixels em todos os lados, com cor #4682B4 (azul aço).
+    Aplique um espaçamento externo (margin) de 30 pixels abaixo de cada subtítulo, para criar um distanciamento dos parágrafos seguintes.
+    Aplique um espaçamento interno (padding) de 20 pixels nas laterias direita e esquerda e 10 pixels no topo e na base.
+
+4 Nas imagens:
+    A imagem menor (imagem-pequena) deve ter um espaçamento interno (padding) de 10 pixels e uma borda contínua preta de 1 pixel.
+    A imagem média (imagem-media) deve ter uma margem externa de 20 pixels em todos os lados e uma borda contínua cinza (#888888) de 4 pixels.
+    A imagem maior (imagem-grande) deve ter um padding de 20 pixels e uma borda azul (#0000FF) de 5 pixels em todos os lados
+**dica utilize as classes */
