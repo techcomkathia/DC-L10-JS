@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+/* cor de fonte */
+/* cor de plano de fundo */
+/* seletor por tag */
+h1{
+    color:rgb(205, 97, 14);
+    font-family: 'Roboto', monospace;
+}
+
+h2{
+    color:#c10909;
+    background-color: rgba(0, 0, 255, 0.425); 
+    padding: 20px;
+      
+}
+
+p{
+    font-family: 'Roboto';
+    font-weight: 100; 
+}
+
+/* seletor por lista  */
+/* propriedade de tamanho da fonte */
+h1, p {
+    font-size: 30px;
+}
+
+/* seletor por afiliação */
+/* propriedade de plano de fundo */
+ul li {
+    background-color: pink;
+}
+
+.minhaClasse{
+    text-align: center;
+}
+
+.classe2{
+    text-decoration: overline;
+    font-weight: 800;
+    list-style-type:armenian;
+}
+
+
+.vermelho{
+    color:red;
+    font-weight: 600;
+}
+
+.azul{
+    color: blue;
+    font-weight: 100;
+}
+
+img{
+    /* border-width: 5px;
+    border-style: solid;
+    border-color: blue; */
+    border: 1px solid blue;
+    /* border-top: 15px solid blue;
+    border-bottom: 5px dashed  rgb(255, 0, 0);
+    border-left:25px solid orange  ;
+    border-right: 5px dashed green; */
+    /* afastamento / espaçamento externo */
+    margin: 50px;
+}
+
+a{
+    font-size: 50px;
+    border: 2px solid red ;
+    /* espaçamento interno */
+    padding: 10px;
+    /* espaçamento extrerno */
+    margin: 40px;
+}
+/* div */
+.card{
+    background-color: black;
+    border: 15px solid rgb(60, 255, 0);
+    /* padding: 50px;  */
+}
+/* img */
+.produto{
+    border: 5px solid red;
+    margin: 50px;
+   
+}
+
