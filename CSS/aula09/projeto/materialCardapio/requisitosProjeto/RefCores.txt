@@ -1,0 +1,6 @@
+Referências cores:
+
+Plano de fundo barra de navegação: #1E1F22
+Títulos e plano de fundo botões: #FFAE00
+Plano de fundo cards: RGBA(37, 37, 37, 0.8)
+Textos: #ffffff

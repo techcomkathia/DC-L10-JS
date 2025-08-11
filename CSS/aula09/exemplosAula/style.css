@@ -1,0 +1,34 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+/* reset de propriedades */
+
+/* criação de variaveis de css */
+:root{
+    --cor1:rgb(2, 60, 236);
+    --corTitulos: salmon;
+    
+}
+
+h1{
+    color: salmon;
+    background-color: var(--cor1);
+}
+
+p{
+    color: var(--cor1);
+}
+
+button{
+    background-color: var(--cor1);
+}
+
+li{
+    color: red;
+}
+
+body{
+    background-color: black;
+}

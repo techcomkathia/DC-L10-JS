@@ -1,0 +1,38 @@
+
+[NAVEGAÇÃO]
+    - Hamburgueres
+    - Acompanhamentos
+    - Bebidas
+
+CARDÁPIO DIGITAL (título principal)
+ 
+HAMBURGUERES (título secundário)
+
+(primeiro card de produto)
+[ imagem HAMBÚRGUER 1]
+    - Clássico Angus Burger - R$22,50
+    - Descrição: Delicie-se com o nosso Hambúrguer Clássico, feito com um suculento hambúrguer de carne angus, queijo derretido, alface crocante, tomate fresco e um toque especial do nosso molho secreto. Perfeito para saciar sua fome!
+
+[HAMBÚRGUER 2]
+    - Gourmet Burger - R$35,00
+    - Descrição: O nosso Hambúrguer Gourmet, preparado com um suculento hambúrguer de carne nobre, queijo derretido, cebola caramelizada e baccon. Uma escolha irresistível!
+
+[HAMBÚRGUER 3]
+    - Defumado BBQ Burger - R$29,00
+    - Descrição: Deixe-se envolver pelo sabor defumado do nosso Hambúrguer BBQ, uma deliciosa combinação de hambúrguer de carne suculenta, queijo cheddar derretido, cebola caramelizada e salada verde.
+
+ACOMPANHAMENTOS
+
+[ACOMPANHAMENTO 1]
+    - Fritas - R$15,00
+    - Descrição: Nossas batatas fritas são o acompanhamento perfeito para qualquer refeição! Cortadas em palitos e fritas até ficarem douradas e crocantes por fora, e macias por dentro, elas são irresistíveis em cada mordida.
+
+BEBIDAS
+
+[BEBIDA 1]
+    - Coca-Cola - R$5,00
+    - Descrição: Refresque-se com a clássica Coca-Cola gelada, uma bebida que encanta paladares há décadas. Com seu sabor único e inconfundível para acompanhar seu hambúrguer ou batatas fritas.
+
+[BEBIDA 2]
+    - Sprite - R$5,00
+    - Descrição: Revitalize seus sentidos com a refrescante Sprite, uma bebida cítrica e efervescente que desperta os sentidos e eleva o seu ânimo para acompanhar seu hambúrguer ou batatas fritas.
