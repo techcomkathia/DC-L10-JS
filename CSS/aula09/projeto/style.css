@@ -30,7 +30,7 @@ body{
     font-family: var(--font);
 }
 
-header{
+header, footer{
     background-color: var(--barraNavegacao);
     padding: 25px;
     display: flex;
@@ -67,3 +67,45 @@ h2{
     color: var(--tituloPlanoFundoBtn);
     text-transform: uppercase;
 }
+
+.boxProduto{
+    display: flex;
+    background-color: var(--planoFundoCards);
+    margin:20px ;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    max-width: 900px;
+    flex-wrap: wrap;
+}
+
+.boxImg img{
+    width: 400px;
+}
+
+.boxTexto{
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    align-items: flex-start;
+    max-height: 600px;
+    padding: 20px;
+}
+
+h3, p, button{
+    margin: 10px;
+}
+
+button{
+    width: 150px;
+    background-color: var(--tituloPlanoFundoBtn);
+    border-radius: 10px;
+    padding: 10px;
+    color: var(--corTextos);
+}
+
+footer{
+    text-align: center;
+}
+
