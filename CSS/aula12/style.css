@@ -1,0 +1,21 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+.gradiente {
+    background: linear-gradient(264deg, rgba(76,36,125,1) 0%, rgba(93,16,186,1) 50%, rgba(68,30,112,1) 100%);
+}
+
+.bg-destaque {
+    background-color: rgb(33, 11, 58);
+}
+
+.bg-imagem {
+    background-image: url(./img/planoFundo.png);
+    background-repeat: repeat;
+}
+
+h1 {
+    font-family: 'Lilita One', cursive;
+    font-size: 3rem;
+    color: rgb(33, 11, 58);
+}
