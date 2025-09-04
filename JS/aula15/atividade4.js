@@ -2,7 +2,7 @@
 let n1 = Number(prompt('Digite o primeiro número'))
 let n2 = Number(prompt('Digite o segundo número'))
 
-let operador = prompt('Digite o operador desejado: \n + para soma \n - para subtração \n * para multiplicação \n  / para divisão')
+let operador = prompt('Digite o operador desejado: \n + para soma \n - para subtração \n * para multiplicação \n  para divisão')
 //peça ao usuário 2 números e um operador. 
 // + para soma
 // - para subtração
