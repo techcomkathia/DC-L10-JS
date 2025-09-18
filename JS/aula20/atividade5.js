@@ -1,0 +1,1 @@
+// faça a alteração na questãio da atividade 3 de forma que a função calculadora receba um callback com a função necessária para a execução do calculo
