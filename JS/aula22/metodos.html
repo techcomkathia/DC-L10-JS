@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Exemplos de métodos</h1>
+
+    <div>
+        <h2>Ola mundo</h2>
+        <p>Paragrafo 1</p>
+        <p>Paragrafo 2Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    </div>
+
+    <p>Paragrafo 3Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+    <ul>
+        <li id="especial">Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <script>
+        //let itens =[... document.getElementsByTagName('li')]
+        //retorna todas as ocorrencias em um nodelist
+        let itens = [ ...document.querySelectorAll('li')] //desestruturando para array
+        //retorna apenas a primeira ocorrencia
+        let paragrafo = document.querySelector('p')
+        // console.log(paragrafo)
+        // console.log(itens)
+
+        let comId = document.querySelectorAll('#especial')
+        console.log(comId)
+        
+
+        let comId2 = document.querySelector('#especial')
+        //acessar a propriedade style que é um  objeto e tem todos os atributos do css
+        comId2.style.color = 'red' //manipulando o css
+        console.log(comId2)
+
+        itens.map((item)=>
+        {
+            // console.log(item.innerHTML)
+            item.innerHTML = 'Novo item'
+        })
+
+    </script>
+</body>
+</html>

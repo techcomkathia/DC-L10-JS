@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- crie a estrutura abaixo usando os métodos createElement e appendChild, usando apenas como estrura principal (pai) a div abaixo. Use as informaçõesde todos os produtos do array de produtos para adicionar conteúdo as tags criadas. Todas as tags criadas serão filhas a div abaixo-->
+    <div id="meuProduto">
+
+    </div>
+   
+
+    <script>
+        let produto = { nome: "Smartphone Galaxy", qtd: 10, preco: 2500, cor: "preto", marca: "Samsung", departamento: "Eletrônicos" }
+
+        let listaProdutos = [{ nome: "Smartphone Galaxy", qtd: 10, preco: 2500, cor: "preto", marca: "Samsung", departamento: "Eletrônicos" },
+        { nome: "Notebook Dell", qtd: 5, preco: 4500, cor: "cinza", marca: "Dell", departamento: "Eletrônicos" },
+        { nome: "Fone Bluetooth", qtd: 15, preco: 300, cor: "branco", marca: "JBL", departamento: "Eletrônicos" },
+        { nome: "TV LED 50''", qtd: 8, preco: 3200, cor: "preto", marca: "LG", departamento: "Eletrônicos" },
+        { nome: "Carregador Portátil", qtd: 20, preco: 150, cor: "azul", marca: "Xiaomi", departamento: "Eletrônicos" },
+        { nome: "Câmera Fotográfica", qtd: 7, preco: 1800, cor: "prata", marca: "Canon", departamento: "Eletrônicos" },
+        { nome: "Console de Video Game", qtd: 4, preco: 3500, cor: "branco", marca: "Sony", departamento: "Eletrônicos" },
+        { nome: "Smartwatch", qtd: 12, preco: 900, cor: "preto", marca: "Apple", departamento: "Eletrônicos" },
+        { nome: "Headset Gamer", qtd: 10, preco: 400, cor: "vermelho", marca: "HyperX", departamento: "Eletrônicos" },
+        { nome: "Monitor 24''", qtd: 6, preco: 1100, cor: "preto", marca: "Acer", departamento: "Eletrônicos" }]
+
+        //seleção do elemento pai
+        let divisao= document.querySelector('div')
+       
+
+        //processo de loop para criação dos filhos e adição ao pai
+        listaProdutos.forEach(
+            (produto)=>{
+
+                const containerProduto = document.createElement('div')
+                //estilização da div do produto
+                containerProduto.style.border= '2px solid red'
+                containerProduto.style.margin = '10px'
+                containerProduto.style.padding = '10px'
+                containerProduto.style.width = '600px'
+
+                const nome= document.createElement('h1')
+                nome.innerHTML = produto.nome
+                //todos os elementos são filhos diretos da div containerProduto e netos da div principal (container)
+                containerProduto.appendChild(nome)
+
+                const descricao = document.createElement('p')
+                descricao.innerHTML = `Marca ${produto.marca} | Cor: ${produto.cor} | Departamento: ${produto.departamento}`
+
+                containerProduto.appendChild(descricao)
+
+                const preco = document.createElement('h5')
+                preco.innerHTML = `R$ ${produto.preco}`
+
+                containerProduto.appendChild(preco)
+
+                const button = document.createElement('button')
+                button.innerHTML = 'Comprar'
+
+                containerProduto.appendChild(button)
+
+                //a divi containerProduto é filha da div principal
+                divisao.appendChild(containerProduto)
+
+
+            }
+        )
+    </script>
+</body>
+</html>

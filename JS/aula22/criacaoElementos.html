@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criando Elementos</title>
+</head>
+<body>
+    <h1>Criando Elementos</h1>
+
+    <div id="container"></div>
+
+    <script>
+
+        //criar um parágrafo dentro da tag div
+
+        let pai = document.querySelector('#container')
+
+        //criar a TAG filha
+        let filho = document.createElement('p')// retorna um elemento p (sem conteudo ou estilização )
+
+        filho.innerHTML = ' Sou um parágrafo que fui criado com o método createElement e tive o meu conteúdo inserido pela propriedade innterHTML'
+
+        //Adicionar um filho ao pai (que já existe no documento)
+        pai.appendChild(filho)
+    </script>
+</body>
+</html>

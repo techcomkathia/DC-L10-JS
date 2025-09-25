@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- crie a estrutura abaixo usando os métodos createElement e appendChild, usando apenas como estrura principal (pai) a div abaixo. Use as informações do objeto produto para adicionar conteúdo as tags criadas. Todas as tags criadas serão filhas a div abaixo-->
+    <div id="meuProduto">
+
+    </div>
+    <!-- div>
+        <h1 id="nomeProduto">Produto 1</h1>
+        <p class="descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, earum.</p>
+        <h5>R$ 100.00</h5>
+        <button>comprar</button>
+    </div> -->
+
+    <script>
+        let produto = { nome: "Smartphone Galaxy", qtd: 10, preco: 2500, cor: "preto", marca: "Samsung", departamento: "Eletrônicos" }
+
+        let divisao= document.querySelector('div')
+       
+        const nome= document.createElement('h1')
+        nome.innerHTML = produto.nome
+
+        divisao.appendChild(nome)
+
+        const descricao = document.createElement('p')
+        descricao.innerHTML = `Marca ${produto.marca} | Cor: ${produto.cor} | Departamento: ${produto.departamento}`
+
+        divisao.appendChild(descricao)
+
+        const preco = document.createElement('h5')
+        preco.innerHTML = `R$ ${produto.preco}`
+
+        divisao.appendChild(preco)
+
+        const button = document.createElement('button')
+        button.innerHTML = 'Comprar'
+
+        divisao.appendChild(button)
+
+    </script>
+</body>
+</html>
