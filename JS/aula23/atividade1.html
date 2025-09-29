@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+     <style>
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .divLousa {
+            width: 400px;
+            height: 400px;
+            background-color: rgb(233, 227, 227);
+            border: 5px solid black;
+        }
+
+        .divBotoes {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            cursor: pointer;
+            padding: 10px;
+            margin: 10px 5px;
+            border: 5px solid black;
+            border-radius: 10px;
+        }
+
+        .vermelho {
+            background-color: red;
+        }
+
+        .azul {
+            background-color: blue;
+        }
+
+        .verde {
+            background-color: green;
+        }
+    </style>
+</head>
+
+   <!-- Clique nos botões para aplicar a cor a lousa mágica. Passe o mouse sobre a lousa para apagar a cor -->
+<body>
+
+    <h1>Lousa Mágica</h1>
+
+    <p>Clique nos botões para aplicar a cor a lousa mágica. Passe o mouse sobre a lousa para apagar a cor</p>
+
+   <div class="divLousa" onmouseover="aplicarCor('rgb(233, 227, 227)')"></div>
+    <div class="divBotoes">
+        <button id="vermelho" class="vermelho" onclick="aplicarCor('red')">Vermelho</button>
+        <button id="azul" class="azul" onclick="aplicarCor('blue')">Azul</button >
+        <button id="verde" class="verde" onclick="aplicarCor('green')">Verde</button>
+    </div>
+
+    <script>
+   
+    function aplicarCor(cor) {
+
+        const lousa = document.querySelector('.divLousa');
+        lousa.style.backgroundColor = cor;
+
+    }
+    </script>
+
+</body>
+
+</html>

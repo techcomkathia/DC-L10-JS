@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Problema das lâmpadas</h1>
+
+    <p>No desafio abaixo você deverá manipular o html de forma que as lâmpadas sejam ligadas e desligadas conforme o clique do botão. Será necessário verificar se a lâmpada não está quebrada. Caso esteja, exiba um alert informando que a lâmpada quebrou e que o usuáruio deverá clicar primeiro no botão de trocar a lâmpada.</p>
+
+    <!-- https://i.sstatic.net/b983w.jpg desligada
+        https://i.sstatic.net/MRjsF.jpg quebrada
+        https://i.sstatic.net/ybxlO.jpg ligada-->
+    <div>
+        <img src="quebrada.jpg" alt="lampada quebrada">
+        <div>
+            <button onclick="trocarLampada()">Trocar lâmpada</button>
+            <button onclick="ligarLampada()">Acender lâmpada</button>
+            <button onclick="desligarLampada()">Apagar lâmpada</button>
+        </div>
+    </div>
+
+    <script>
+
+        const imagem = document.querySelector('img')
+
+        function ligarLampada(){
+
+            if(imagem.alt=='lampada quebrada'){
+                alert('A lâmpada quebrou, troque-a primeiro')
+                return
+            }
+            
+            imagem.src='ligada.jpg'
+            imagem.alt='Lampada ligada'
+            
+        }
+
+        function desligarLampada(){
+            if(imagem.alt=='lampada quebrada'){
+                alert('A lâmpada quebrou, troque-a primeiro')
+                return
+            }
+            
+            imagem.src='desligada.jpg'
+            imagem.alt='Lampada desligada'
+            
+        }
+
+        function trocarLampada(){          
+            imagem.src='desligada.jpg'
+            imagem.alt='Lampada desligada'
+            
+        }
+
+    </script>
+    
+</body>
+</html>
