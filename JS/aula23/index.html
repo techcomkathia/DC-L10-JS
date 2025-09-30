@@ -11,14 +11,31 @@
 
     <button onclick="clicou('button')" onmouseover="console.log('o mouse passou no botão')">Clique aqui</button>
 
+    <button id="btnEscrever">Clique aqui para escrever na div</button>
+
+    <button id="btnTeste">TESTE</button>
+
     <div></div>
 
     <script >
+        let btnEscerever = document.querySelector('#btnEscrever')
+        //adição de um evento dentro do JS
+        //elemento.addEventListener('evento', funcao callback)
+        btnEscrever.addEventListener('click', ()=>escreverNaDiv('meu texto'))
+      
+        let btnTeste = document.querySelector('#btnTeste')
+        btnTeste.addEventListener('click', ()=> alert('Clicou no botão teste'))
+
 
         function clicou(nomeDaTag){
             alert('Clicou em mim na tag ' + nomeDaTag)
             let h1 = document.querySelector('h1')
             h1.style.color = 'red'
+        }
+
+        function escreverNaDiv(texto){
+            let div = document.querySelector('div')
+            div.innerHTML = `<p>${texto}</p>`
         }
 
 

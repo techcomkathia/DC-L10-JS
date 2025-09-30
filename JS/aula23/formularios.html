@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Formulários</h1>
+
+    <form action="#">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Digite seu email">
+        <br>
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" placeholder="Digite sua senha">
+        <br>
+        <input type="submit" value="Enviar">
+    </form>
+
+    <p>O formulário abaixo trabalha com o evento de mudança. Assim que o usuário alterar o conteúdo de um campo, o formulário calcula o valor da soma e exibe na tela em um outro campo de texto</p>
+    <form action="#" id="calcular">
+        <label for="num1">N1:</label>
+        <input type="number" id="num1" name="num1">
+        <br>
+        <label for="num2">N2:</label>
+        <input type="number" id="num2" name="num2">
+    </form>
+
+    <h1 id="resultado"></h1>
+
+
+    <script src="formularios.js"></script>    
+</body>
+</html>
