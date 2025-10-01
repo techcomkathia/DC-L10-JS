@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="recebe.php" method="post">
+        <input type="email" name="nome" placeholder="Seu email">
+        <input type="password" name="senha" id="senha">
+        <input type="checkbox" id="mostrar">
+        <input type="submit" value="Enviar">
+    </form>
+
+    <script>
+
+        const mostrarSenha = document.querySelector('#mostrar')
+        const senha = document.querySelector('#senha')
+        const form = document.querySelector('form')
+
+        mostrarSenha.addEventListener('change',()=>{
+            if(mostrarSenha.checked){
+                senha.type = 'text'
+            }else{
+                senha.type = 'password'
+            }
+        })
+
+        form.addEventListener('submit',function(e){
+            e.preventDefault()
+            console.log({
+                email: form.elements[0].value,
+                senha: form.elements[1].value
+            })
+        })
+
+
+
+
+    </script>
+    
+</body>
+</html>

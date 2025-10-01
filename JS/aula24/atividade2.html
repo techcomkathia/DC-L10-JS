@@ -10,7 +10,7 @@
     <!-- crie um formulário que faça o cadastro de um produto no estoque. Esse produto deve conter: nome, quantidade, preço, departamento; Todos os campos devem ser preenchidos -->
 
     <form action="#">
-        <label for="nome">Nome</labec
+        <label for="nome">Nome</label>
         <br>
         <input type="text" id='nome'>
         <br>
@@ -28,6 +28,7 @@
         <label for="departamento">Departamento</label>
         <br>
         <select name="departamento" id="departamento">
+            <option value="cama">selecione um departamento</option>
             <option value="camaEmesa">camaEmesa</option>
             <option value="movies">movies</option>
             <option value="eletronicos">eletronicos</option>
@@ -64,6 +65,54 @@
                 departamento: 'moda'
             }
         ]
+
+
+        let form = document.querySelector('form')
+        form.addEventListener('submit', function(event){
+            event.preventDefault()
+            let nome = document.querySelector('#nome')
+            let quantidade = document.querySelector('#quantidade')
+            let preco = document.querySelector('#preco')
+            let departamento = document.querySelector('#departamento')
+
+            // validações de preenchimento
+            if(!nome.value){
+                alert('Digite o nome')
+                return
+            }
+            if(!quantidade.value){
+                alert('Digite a quantidade')
+                return
+            }
+            if(!preco.value){
+                alert('Digite o preco')
+                return
+            }
+            if(departamento.value == 'selecione um departamento'){
+                alert('Digite o departamento')
+                return
+            }
+
+            let produto = {
+                nome: nome.value,
+                quantidade: quantidade.value,
+                preco: preco.value,
+                departamento: departamento.value
+            }
+            produtos.push(produto)
+            console.log(produtos)
+
+            // limpar os campos
+            nome.value = ''
+            quantidade.value = ''
+            preco.value = ''
+            departamento.value = 'selecione um departamento'
+
+            alert('Produto cadastrado com sucesso')
+            
+
+            
+        })
 
     </script>
     
