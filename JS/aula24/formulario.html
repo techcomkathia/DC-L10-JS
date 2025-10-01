@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="#">
+        <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+        <br>
+        <p style="display: none;" id="erroNome">Digite seu nome</p>
+        <input type="email" id="email" name="email" placeholder="Digite seu email">
+        <p style="display: none;" id="erroEmail">email errado</p>
+        <br>
+        <input type="submit" value="Enviar">
+    </form>
+
+    <script>
+        const emailCerto = 'kathia@email'
+        const formulario = document.querySelector('form')
+        const nome = document.querySelector('#nome')
+        const email = document.querySelector('#email')
+        // remoção do evento padrão de envio de formulário
+        formulario.addEventListener('submit', function(e){
+            e.preventDefault()//evita o envio do formulário
+            const erroEmail = document.querySelector('#erroEmail')
+            const erroNome = document.querySelector('#erroNome')
+            //verificação:
+            if(!nome.value){  
+                erroNome.style.display = 'block'
+            }
+            if(email.value !== emailCerto){   
+                erroEmail.style.display = 'block'
+            }
+
+            erroEmail.style.display = 'none'
+            erroNome.style.display = 'none'
+            console.log({
+                nome: nome.value,
+                email: email.value
+            })
+
+            //limpar os campos
+            nome.value = ''
+            email.value = ''
+            
+        })
+
+
+    </script>
+
+    
+</body>
+</html>

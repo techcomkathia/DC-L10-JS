@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <main>
+
+        <h1>Aula 24</h1>
+
+        <input type="text" id="nome" placeholder="Digite seu nome">
+        <button >Clique aqui para exibir a mensagem</button>
+        <h1 id="mensagem"></h1>
+
+    </main>
+    <script>
+
+        let btn = document.querySelector('button')
+        let input = document.querySelector('#nome')
+        let h1 = document.querySelector('#mensagem')
+
+        function mostrarMensagem(){
+            h1.innerHTML = `Olá ${input.value}`
+        }
+
+        //adicionar o evento de clique ao botão
+        btn.addEventListener('click', mostrarMensagem)
+
+
+    </script>
+</body>
+</html>

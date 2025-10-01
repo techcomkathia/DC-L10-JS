@@ -1,0 +1,56 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <main>
+        <h1>Atividade 1</h1>
+
+        <input type="text" id="tarefa" placeholder="Digite sua tarefa">
+        <button id="btn-adicionar">Adicionar tarefa</button>
+        <button id="btn-adicionar-urgente">Adicionar tarefa urgente</button>
+
+        <h1 >Tarefas:</h1>
+        <ul id="tarefas">
+
+        </ul>
+        <h1 >Tarefas urgentes:</h1>
+        <ol id="tarefas-urgentes">
+
+        </ol>
+    </main>
+    <script>
+        let btnNormal = document.querySelector('#btnNormal')
+        let btnUrgente = document.querySelector('#btnUrgente')
+        let input = document.querySelector('#tarefa')
+        let ul = document.querySelector('#tarefas')
+        let ol = document.querySelector('#tarefas-urgentes')
+
+        function adicionarTarefa(){
+            let li = document.createElement('li')
+            li.innerHTML = input.value
+            ul.appendChild(li)
+            input.value = ''
+        }
+
+        function adicionarTarefaUrgente(){
+            let li = document.createElement('li')
+            li.innerHTML = input.value
+            ol.appendChild(li)
+            input.value = ''
+        }
+
+        btnNormal.addEventListener('click', adicionarTarefa)
+        btnUrgente.addEventListener('click', adicionarTarefaUrgente)
+
+
+    </script>
+    
+</body>
+</html>

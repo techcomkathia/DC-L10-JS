@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- crie um formulário que faça o cadastro de um produto no estoque. Esse produto deve conter: nome, quantidade, preço, departamento; Todos os campos devem ser preenchidos -->
+
+    <form action="#">
+        <label for="nome">Nome</labec
+        <br>
+        <input type="text" id='nome'>
+        <br>
+
+        <label for="quantidade">Quantidade</label>
+        <br>
+        <input type="number" id='quantidade'>
+        <br>
+
+        <label for="preco">Preco</label>
+        <br>
+        <input type="number" id="preco">
+        <br>
+
+        <label for="departamento">Departamento</label>
+        <br>
+        <select name="departamento" id="departamento">
+            <option value="camaEmesa">camaEmesa</option>
+            <option value="movies">movies</option>
+            <option value="eletronicos">eletronicos</option>
+            <option value="moda">moda</option>
+        </select>
+        <br>
+        <input type="submit" value="Enviar">
+    </form>
+
+    <script>
+        let produtos = [
+            {
+                nome: 'cama',
+                quantidade: 10,
+                preco: 100,
+                departamento: 'camaEmesa'
+            },
+            {
+                nome: 'filme',
+                quantidade: 10,
+                preco: 100,
+                departamento: 'movies'
+            },
+            {
+                nome: 'teclado',
+                quantidade: 10,
+                preco: 100,
+                departamento: 'eletronicos'
+            },
+            {
+                nome: 'sapato',
+                quantidade: 10,
+                preco: 100,
+                departamento: 'moda'
+            }
+        ]
+
+    </script>
+    
+</body>
+</html>
