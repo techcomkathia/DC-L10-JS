@@ -4,6 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+      <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    form {
+      max-width: 400px;
+      margin: auto;
+      padding: 20px 30px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background: #f9f9f9;
+    }
+    label {
+      display: block;
+      margin: 10px 0 10px;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+    .checkbox {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    button {
+      padding: 10px;
+      width: 100%;
+      background: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    </style>
 </head>
 <body>
 
@@ -21,6 +61,136 @@
         dê a opção de mostra as senhas digitadas caso o usuário queira
         ao final terá um campo de checkbox para aceitar os termos de uso. Não poderá ser feito o cadastro sem aceitar os termos de uso
     -->
+
+    <form id="cadastroForm">
+        <h2>Cadastro de Usuário</h2>
+
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome">
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email">
+
+        <label for="dataNascimento">Data de Nascimento:</label>
+        <input type="date" id="dataNascimento" name="dataNascimento">
+
+        <label for="cep">CEP:</label>
+        <input type="text" id="cep" name="cep" placeholder="00000-000">
+
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" name="telefone" placeholder="(99) 99999-9999">
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha">
+
+        <label for="confirmaSenha">Confirmar Senha:</label>
+        <input type="password" id="confirmaSenha" name="confirmaSenha">
+
+        <div class="checkbox">
+        <input type="checkbox" id="mostrarSenha">
+        <label for="mostrarSenha">Mostrar senhas</label>
+        </div>
+
+        <div class="checkbox">
+        <input type="checkbox" id="termos">
+        <label for="termos">Aceito os termos de uso</label>
+        </div>
+
+        <button type="submit">Cadastrar</button>
+  </form>
+
+  <script>
+    const nome = document.getElementById('nome')
+    const email = document.getElementById('email')
+    const dataNascimento = document.getElementById('dataNascimento')
+    const cep = document.getElementById('cep')
+    const telefone = document.getElementById('telefone')
+    const senha = document.getElementById('senha')
+    const confirmaSenha = document.getElementById('confirmaSenha')
+    const mostrarSenha = document.getElementById('mostrarSenha')
+    const termos = document.getElementById('termos')
+    const form = document.getElementById('cadastroForm')
+
+    let arquivoUsuarios= []
+
+    //evento de mudança para mostrar a senha como texto ou como senha
+
+    mostrarSenha.addEventListener('change', ()=>{
+        //verificar se está selecionado e mostrará a senha no formato textual
+        if(mostrarSenha.checked){
+            senha.type = 'text'
+            confirmaSenha.type= 'text'
+        }
+        else{
+            senha.type= 'password'
+            confirmaSenha.type= 'password'
+        }
+    })
+
+
+    //configurações para o envio do formulário ( validações e cadastro)
+    form.addEventListener('submit', (e)=>{
+        e.preventDefault() //remoção do comportamento padrão do formulário
+
+        //verificações
+
+        //todos os campos estão preenchidos?
+        if(!nome.value || !email.value || !dataNascimento.value || !cep.value || !telefone.value || !senha.value || !confirmaSenha.value){
+            alert('Todos os campos devem ser preenchidos')
+            return
+        }
+
+    
+
+        // if(!nome.value){
+        //     alert('Digite o nome')
+        //     nome.style.border = '2px solid red'
+        //     return
+            // caso de manipulação do css para um campo específico
+        // }
+
+        //validação das senhas
+        if(senha.value!== confirmaSenha.value){
+             alert('As senhas não são iguais')
+             return
+        }
+
+        //verificar se os termos e condições de uso foram aceitos
+        if(!termos.checked){
+            alert('Os termos precisam ser aceitos')
+            return
+        }
+
+        //cadastrar um objeto usuário no array
+
+        let user = {
+            nome: nome.value,
+            email: email.value,
+            dataN: dataNascimento.value,
+            cep: cep.value,
+            contato: telefone.value,
+            senha: senha.value
+        }
+
+        //adicionar na lista
+        arquivoUsuarios.push(user)
+
+        //limpeza dos campos
+        nome.value = ''
+        email.value = ''
+        dataNascimento.value = ''
+        telefone.value = ''
+        senha.value = ''
+        confirmaSenha.value = ''
+
+        mostrarSenha.checked= false
+        termos.checked = false
+
+        alert('Cadastro realizado com sucesso!')
+
+    })
+
+  </script>
     
 </body>
 </html>
