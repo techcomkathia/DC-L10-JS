@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Aula 25</h1>
+
+    <h2 id="rua"></h2>
+
+    <script >
+        //consumo de api com fetch
+
+        //codigo sincrono
+        console.log('codigo sincrono 1º console.log')
+
+        //codigo assincrono
+        fetch('https://viacep.com.br/ws/01001000/json/')//promise
+        .then(resposta => resposta.json())// o método then recebe uma promise e é executado quando a promise for resolvida
+        //este then recebe o resultado da promise e converte ele de json para um objeto
+        .then(dadosDaResposta => {
+            console.log(dadosDaResposta)
+            //inserindo o conteudo da rua no html a partir do objeto devolvido pela api
+            document.getElementById('rua').innerHTML = dadosDaResposta.bairro
+        })
+
+        //codigo sincrono
+        console.log('codigo sincrono 2º console.log')
+
+        
+    </script>
+</body>
+</html>

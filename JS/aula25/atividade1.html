@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- //crie uma função que ao ser executa peça um cep ao usuário e mostre o nome da rua, do bairro e da cidade na tela
+        //essa função será executada a partir de um evento de click no botão -->
+
+    <button>Clique aqui para buscar por um cep</button>
+
+    <div id="endereco">
+
+    </div>
+
+    <script>
+
+        function buscarCep(cep) {
+            let url = `https://viacep.com.br/ws/${cep}/json/`
+
+            //consultar a api e receber uma promisse
+            fetch(url)//retorna uma promisse
+            .then((resposta)=>resposta.json())
+            .then((objetoResposta)=>{
+                //captar o elelento que vai renderizar a informação
+                let divEndereco = document.querySelector('#endereco')
+
+                let rua = document.createElement('h2')
+                let bairro = document.createElement('h2')
+                let cidade = document.createElement('h2')
+
+                rua.innerHTML = objetoResposta.logradouro
+                bairro.innerHTML = objetoResposta.bairro
+                cidade.innerHTML= objetoResposta.localidade
+
+                divEndereco.append(rua, bairro, cidade)
+            })
+            .catch((erro)=>{
+                console.log('Deu ruim')
+
+                let divEndereco = document.querySelector('#endereco')
+
+                let rua = document.createElement('h2')
+
+                rua.innerHTML = 'Erro ao buscar cep'
+
+                divEndereco.append(rua)
+
+            })
+
+           
+        }
+
+        const button = document.querySelector('button')
+
+        button.addEventListener('click', ()=> buscarCep(prompt('Digite apenas os números do cep')))
+
+
+
+    </script>
+    
+</body>
+</html>

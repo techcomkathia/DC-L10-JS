@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Codigos de status</h1>
+
+
+    <script>
+        const body = document.querySelector('body')
+        
+
+        fetch('https://brasilapi.com.br/api/ddd/v1/81')
+        .then(resposta => {
+            //verificar se existe o status de sucesso
+            return resposta.json()        
+
+        })
+        .then(dadosDaResposta => {
+            console.log(dadosDaResposta)
+           if(dadosDaResposta.message){
+            //situação para os erros possíveis
+            body.innerHTML += 'Verifique se o dd é válido'
+           }
+           else{
+            //caso de sucesso
+            //utilizando o objeto de resposta para manipular as informações, mostrando a UF do estado e a quantidade de cidades que utilizam esse ddd
+            body.innerHTML += `
+            <h2>UF: ${dadosDaResposta.state}</h2>
+            <h2>Quantidade de cidades: ${dadosDaResposta.cities.length}</h2>
+            <ul> 
+
+                ${dadosDaResposta.cities.map(cidade => `<li>${cidade}</li>`).join('')}
+
+            </ul>
+            `
+
+
+           }
+        })
+        .catch(erro => {
+           console.log(erro.message)         
+          
+        })
+
+        console.log('codigo sincrono 2º console.log')
+        
+
+    </script>
+    
+</body>
+</html>
