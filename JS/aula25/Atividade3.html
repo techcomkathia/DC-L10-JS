@@ -14,6 +14,47 @@
      2- Crie um input em que o usuário possa inserir um número de id para buscar um produto específico. Ao fazer a busca mostre todas as informações do produto: imagem, nome, descrição e preço. Caso o id do produto não exista, mostre a mensagem 'Produto não encontrado'
     
     -->
+
+    <script>
+
+        async function buscaProduto(id) {
+
+            try{
+                //Todo o processamento da função que poderá ocasionar um erro
+
+                const respostaApi = await fetch(`https://fakestoreapi.com/products/${id}`)
+
+                //converter a resposta para json
+                const produto = await respostaApi.json()
+
+                console.log(produto)
+
+                const imagem = document.createElement('img')
+                imagem.src = produto.image
+
+                const nome = document.createElement('h2')
+                nome.innerHTML = produto.title
+
+                const descricao = document.createElement('p')
+                descricao.innerHTML = produto.description
+
+                const preco = document.createElement('h5')
+                preco.innerHTML = `R$ ${produto.price}`
+
+                document.body.append(imagem, nome, descricao, preco)
+            }
+            catch(e){
+
+                console.log('Produto nao encontrado', e.message)
+                document.body.innerHTML = 'Produto nao encontrado'
+
+            }
+            
+        }
+
+        buscaProduto('a')
+
+    </script>
     
 </body>
 </html>

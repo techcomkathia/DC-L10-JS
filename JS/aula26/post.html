@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        fetch('https://fakestoreapi.com/products',{
+            method: 'POST',
+            contentType: 'application/json',
+            body: JSON.stringify({
+                title: 'Notebook',
+                price: 1000,
+                description: 'Notebook bom',
+                category: 'eletronics',
+                image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+            })
+        })
+        .then(resposta => resposta.json())
+        .then(json => console.log(json))
+        .catch(erro => console.log(erro))
+
+        async function postarProduto(objeto) {
+
+           try{
+             const resposta = await fetch('https://fakestoreapi.com/products', {
+                method: 'POST',
+                contentType: 'application/json',
+                body: JSON.stringify(objeto)
+            })
+            
+            //converter a resposta para objeto
+            const produto = await resposta.json()
+            console.log(produto)
+           }
+           catch(erro){
+               console.log(erro)
+           }
+        }
+
+        //crie um formulário para cadastro de um usuario, com o consumo da api com o método post
+
+        postarProduto({
+            title: 'Notebook',
+            price: 1000,
+            description: 'Notebook bom',
+            category: 'eletronics',
+            image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+        })
+
+    </script>
+</body>
+</html>

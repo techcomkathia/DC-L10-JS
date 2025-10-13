@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- {
+  "id": 0,
+  "username": "string",
+  "email": "string",
+  "password": "string"
+} -->
+
+    <form action="#" style="display: flex; flex-direction: column; width: 400px;">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email">
+        <label for="password">Senha</label>
+        <input type="password" name="password" id="password">
+        <label for="confirmPassword">Confirmar Senha</label>
+        <input type="password" name="confirmPassword" id="confirmPassword">
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <script>
+        const form = document.querySelector('form')
+        const username = document.querySelector('#username')
+        const email = document.querySelector('#email')
+        const password = document.querySelector('#password')
+        const confirmPassword = document.querySelector('#confirmPassword')
+        const botao = document.querySelector('button')
+
+        function cadastrar(objUsuario) {
+
+            fetch('https://fakestoreapi.com/users', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(objUsuario)
+            })
+            .then( resposta => resposta.json() )
+            .then( json => {
+                console.log(json)
+                alert('Usuário cadastrado com sucesso!')
+            })
+            .catch( erro => console.log(erro) )
+        }
+
+        function enviarFormulario(e){
+            //remover o comportamento padrão do formulario
+            e.preventDefault()
+
+            //validação das senhas
+            if(password.value !== confirmPassword.value || password.value === '' || confirmPassword.value === ''){
+                alert('Senhas diferentes')
+                return
+            }
+
+            //criar o objeto usuario
+            const objUsuario = {
+                username: username.value,
+                email: email.value,
+                password: password.value
+            }
+
+            //chamar a funcao cadastrar
+            cadastrar(objUsuario)
+
+            //limpar os campos
+            username.value = ''
+            email.value = ''
+            password.value = ''
+            confirmPassword.value = ''
+
+        }
+        
+        form.addEventListener('submit', (evento)=> enviarFormulario(evento))
+    </script>
+</body>
+</html>
