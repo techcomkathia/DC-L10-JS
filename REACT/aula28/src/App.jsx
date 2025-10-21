@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Atividade1 from './componentes/Atividade1'
 import nomeImagem from './assets/desligada.jpg'
 import Atividade2 from './componentes/Atividade2'
+import Atividade3 from './componentes/Atividade3'
 
 function App() {
   function adicionar() {
@@ -51,6 +52,8 @@ function App() {
     <button onClick={()=>{
       setFrutas([...frutas, prompt('Digite uma fruta')])
     }}>Adicionar uma nova fruta</button>
+
+    <Atividade3></Atividade3>
       
     </>
   )
