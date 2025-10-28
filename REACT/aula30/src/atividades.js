@@ -35,11 +35,5 @@
 /*[
 {texto: 'revisar js', urgente: false},
 {texto: 'revisar html', urgente: true},
-]/*
-
-
-
-
-
-
+]*/
 
