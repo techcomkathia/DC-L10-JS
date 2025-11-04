@@ -5,6 +5,8 @@ import { MeuProvedorContexto } from './componentes/MeuProvedorContexto'
 import Componente1 from './componentes/Componente1'
 import Componente2 from './componentes/Componente2'
 import ProdutosProvider from './componentes/ProdutosProvider'
+import Atividade2 from './componentes/Atividade2'
+import Atividade3 from './componentes/Atividade3'
 
 function App() {
   
@@ -28,6 +30,8 @@ function App() {
 
        <ProdutosProvider>
         {/* {INSERIR O COMPONENTES QUE USÃO O CONTEXTO DOS PRODUTOS ABAIXO} */}
+        <Atividade2/>
+        <Atividade3/>
       </ProdutosProvider>
 
       
