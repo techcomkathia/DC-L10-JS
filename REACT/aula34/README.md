@@ -87,4 +87,4 @@ let carrinho = []
 - Consumir o contexto nas páginas da aplicação:  useContext e o arquivo do contexto
     - Listar todos os produtos na página Home. Use o componente CardProduto em uma renderização por lista
 
-
+- Adico

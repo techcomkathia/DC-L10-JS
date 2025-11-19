@@ -4,6 +4,8 @@ import Rotas from './rotas/Rotas'
 //importar o componente BrowserRoute do react-router-dom
 import {BrowserRouter} from 'react-router-dom'
 
+import BarraNavegacao from './componentes/BarraNavegacao'
+
 function App() {
   //1) criar o projeto/ inicializar o servidor
   //2) fazer a instalação da dependência react-router-dom (EM UM OUTRO TERMINAL)
@@ -17,6 +19,7 @@ function App() {
     <>
       <h1>Atividade 1</h1>
       <BrowserRouter>
+          <BarraNavegacao/>
           <Rotas/>
       </BrowserRouter>
 
