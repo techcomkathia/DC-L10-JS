@@ -1,0 +1,14 @@
+
+CONFIGURAÇÃO DO PROJETO
+
+- criar pasta
+- iniciar o node no diretório : npm init 
+- preencher o que é solicitado no terminal 
+- abrir arquivo package.json e no atributo scrpits adicionar :
+    "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  }
+
+** você pode substuir o arquivo main pelo nome do seu arquivo principal 
+- criar o seu arquivo js principal ( main.js, index.js ou etc...)
