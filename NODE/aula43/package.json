@@ -1,0 +1,21 @@
+{
+  "name": "aula43",
+  "version": "1.0.0",
+  "description": "Detalhamento dos modelos com sequelize de tabelas com chaves estrangeiras ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js",
+    "dev": "nodemon main.js"
+  },
+  "author": "Káthia Rocha",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mysql2": "^3.16.0",
+    "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
