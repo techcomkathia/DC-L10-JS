@@ -1,0 +1,36 @@
+Passo a passo para criação da API
+
+- Garantir que o Banco de Dados existe
+- Configurar o projeto no diretório:
+    - inicialização do node 
+    - instalação das dependências : 
+        - nodemon
+        - express
+        - sequelize
+        - mysql2
+    - criação das pastas:
+        - modelo
+        - serviços
+        - controladores
+        - rotas
+        - middlewares
+    - configurar o acesso ao banco e os modelos
+        - configBanco
+        - usuariosModel
+        - produtosModel
+        - servidorBanco
+    - testar a conexão com o Banco e a sincronização das tabelas
+    - criar aquivo main e configurar um servidor para o express
+    - Ordem das camadas (mais profunda até a mais superficial. Mais profunda que é mais próxima ao banco de dados e a mais superficial que é mais próxima das requisições do usuário) modelo/serviços/controladores/rota/servidorAPI
+    
+    - configurar os serviços
+        -testar individualmente os serviços em um arquivo a parte
+    - configurar os controladores
+    - configurar os middlewares de validação
+    - configurar as rotas
+    - usar as rotas no arquivo principal do servidor da aplicação (main.js)
+
+
+    -IMPORTANTE: para testar as rotas com qualquer método diferente do GET usar o postman 
+
+
