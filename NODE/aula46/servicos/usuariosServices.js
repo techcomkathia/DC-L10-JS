@@ -1,6 +1,8 @@
 const usuarioModel = require('../modelo/UsuariosModel');
 const bcrypt = require('bcrypt'); //instalar com npm install bcrypt
 
+//IMPORTAR O DOTENV
+require('dotenv').config();
 //importação do modelo que será manipulado pelos serviços
 
 //operações de CRUD (Create, Read, Update, Delete) para usuários
@@ -22,7 +24,9 @@ async function criarUsuario(dadosUsuario) {
         const {nome, email, senha} = dadosUsuario;
 
         //gerar o hash da senha antes de salvar no banco de dados
-        const senhaHash = await bcrypt.hash(senha, 10);
+        //A QUANTIDADE DE RODADAS (salt rounds) PODE SER INSERIDA COMO VARIÁVEL DE AMBIENTE
+        
+        const senhaHash = await bcrypt.hash(senha, Number(process.env.BCRYPT_SALT_ROUNDS));
         //o terceiro parametro do hash é uma função de callback opcional, mas como estamos usando async/await, não precisamos dela
         //a senha será modificada utilizando hash 
         const novoUsuario = await usuarioModel.create({

@@ -37,8 +37,13 @@ Passo a passo para criação da API
         - verificação de senhas para rotas protegidas:
             - comparar a senha enviada no corpo da requisição com o hash de senha armazenado no banco de dados
 
-
-
     -IMPORTANTE: para testar as rotas com qualquer método diferente do GET usar o postman 
+
+    -AULA 46
+        - Instalar o dotenv
+        - Criar o arquivo .env
+        - Identificar as informações que devem estar seguras (e os arquivos que elas são utilizadas)
+        e criar as variáveis com os valores necessários
+        - Utilizar as variáveis de ambiente substituindo as informações presentes nos arquivos necessários 
 
 

@@ -2,6 +2,9 @@
 // caso não seja válido, retorna uma mensagem de erro de autenticação
 const jwt = require('jsonwebtoken');
 
+//IMPORTAR VARIÁVEIS DE AMBIENTE
+require('dotenv').config({path: '../.env'});
+
 function autenticarToken(req, res, next) {
     //pegar o token do cabeçalho da requisição
     const authHeader = req.headers['authorization'];
@@ -15,7 +18,8 @@ function autenticarToken(req, res, next) {
     //método é o verify do jsonwebtoken
     //recebe como parâmetros: token, chave privada usada na geração do token, callback com erro e payload (conteúdo do token)
 
-    jwt.verify(token, 'palavra_super_secreta', (err, payload) => {
+    //USO DO DOTENV PARA ACESSAR E USAR VARIÁVEIS DE AMBIENTE (palavra secreta)
+    jwt.verify(token, process.env.JWT_SECRET, (err, payload) => {
         if (err) {
             return res.status(403).json({mensagem: 'Token inválido ou expirado'});
         }

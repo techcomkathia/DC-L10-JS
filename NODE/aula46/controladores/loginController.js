@@ -1,6 +1,9 @@
 const usuariosServices = require('../servicos/usuariosServices');
 const bcrypt = require('bcrypt'); //instalar com npm install bcrypt
 
+//IMPORTAR O DOTENV
+require('dotenv').config({path: '../.env'});
+
 //importação do jsonwebtoken para geração de tokens
 const jwt = require('jsonwebtoken');
 
@@ -33,8 +36,10 @@ async function postLogin(req, res) {
         };
         //construir o token
         //parametros para o metodo sign: payload, chave privada, objeto de configuração com tempo de expiração
-        const token = jwt.sign(payload, 'palavra_super_secreta', {expiresIn: '1h'});
-        
+        //UTILIZANDO O DOTENV PARA PEGAR A PALAVRA SECRETA DAS VARIÁVEIS DE AMBIENTE
+        // const token = jwt.sign(payload, 'palavra_super_secreta', {expiresIn: '1h'});
+        const token = jwt.sign(payload, process.env.JWT_SECRET, {expiresIn: '1h'});
+       
         //adicionar o token na resposta
         return res.status(200).json({mensagem: 'Login realizado com sucesso', token: token});
 

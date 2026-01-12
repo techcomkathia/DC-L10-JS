@@ -2,6 +2,9 @@
 const usuariosServices = require('../servicos/usuariosServices');
 const bcrypt = require('bcrypt'); //instalar com npm install bcrypt
 
+//importação do dotenv para leitura das variáveis de ambiente
+require('dotenv').config();
+
 //normalmente os controladores tem o nome do método http que ele representa
 // mostrar todos os usuários getUsuarios, mostrar um usuário getUsuario, criar usuário postUsuario ...
 
