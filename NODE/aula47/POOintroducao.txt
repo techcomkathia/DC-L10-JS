@@ -1,0 +1,14 @@
+- Classes - permitem criar um conjunto de objetos que terão uma série de características (atributos) e ações/ funcionalidades (métodos) em comum. Os valores desses atributos podem ser diferentes, mas a presença da característica é essencial para objetos da mesma classe. 
+
+
+CLASSE MEIO DE TRANSPORTE 
+características (ATRIBUTOS)
+- Tipo: terreste, aquático, aéreo 
+- Nome: carro, motocicleta, foguete, barco
+- cor : a cor do veículo
+ações/ funções (MÉTODOS)
+- se mover: mostra a informação que está se movendo a uma determinada velocidade
+- parar: mostra como o meio de transporte foi parado 
+
+
+-ABSTRAÇÃO : faz parte do processo de escolha dos atributos e métodos que pertencerão a uma classe (sendo comum a TODOS os objetos que forem instanciados por esta classe)
