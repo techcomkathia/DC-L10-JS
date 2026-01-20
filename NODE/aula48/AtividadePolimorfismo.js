@@ -1,26 +1,3 @@
-// crie um sistema bancario simples usando herança
-//definição da classe mais genérica
-//Superclasse: ContaBancaria
-/*
-
-numeroConta
-titular
-saldo
-
-exibirSaldo()
-sacar()
-*/
-
-
-/*Classes filhas (herdam os atributos e métodos da superclasse) e tem acesso aos atributos e métodos privados da superclasse. Cada classe filha internamente poderá acessar e manipular os atributos privados da superclasse. (HERANÇA E ENCAPSULAMENTO)*/
-
-/* Fora da clase e da subclasse não é possível acessar os atributos privados da superclasse diretamente. Só é possível acessar por meio de métodos públicos (getters e setters) definidos na superclasse.*/
-
-/* Dica, utilize o prefixo:
-getAtributoPrivado para os métodos getters 
-setAtributoPrivado para os métodos setters. 
-Exemplo: getSaldo() e setSaldo()*/
-
 
 class ContaBancaria{
     //terá dois atributos privados ( só podem ser acessados dentro da classe ou por métodos da classe)
@@ -64,64 +41,83 @@ class ContaBancaria{
 
 }
 
-//Classes filhas: ContaCorrente, ContaPoupanca, contaSalario
-/*
-ContaCorrente:
-limiteChequeEspecial
-Depositar()
-Transferir()*/
-
 class ContaCorrente extends ContaBancaria{
     #saldo
+    #titular
     constructor(numeroConta, titular, saldo=0, limiteChequeEspecial=0){
         super(numeroConta, titular, saldo)
         this.limiteChequeEspecial = limiteChequeEspecial
     }
 
-    //método específico da subclasse
+   
     depositar(valor){
         this.#saldo += valor
         console.log(`Depósito de R$ ${valor.toFixed(2)} realizado com sucesso.`)
-        //exbir o saldo usando o método herdado da superclasse
+
         this.exibirInformacoes()
+    }
+
+
+    //sobrescrevendo o método sacar da superclasse (Polimorfismo)
+    //Funcionamento adaptado para considerar o limite do cheque especial (informação específica da ContaCorrente)
+    exibirInformacoes(){
+        console.log(`Conta Corrente: ${this.numeroConta}, Titular: ${this.#titular}, Saldo: R$ ${this.#saldo.toFixed(2)}, Limite Cheque Especial: R$ ${this.limiteChequeEspecial.toFixed(2)}`)
+    }
+
+    //o método sacar foi adaptado para considerar o limite do cheque especial, sobrescrevendo o método da superclasse
+    sacar(valor){
+        if(valor > (this.#saldo + this.limiteChequeEspecial)){
+            console.log(`Saldo insuficiente para saque de R$ ${valor.toFixed(2)}.`)
+        } else if(valor < this.#saldo){ 
+           //se o saldo for suficiente, realiza o saque normalmente
+           this.#saldo -= valor
+           console.log(`Saque de R$ ${valor.toFixed(2)} realizado com sucesso.`)
+        }
+        else {
+            //se o saldo não for suficiente, utiliza o limite do cheque especial
+            const valorDoChequeEspecial = valor - this.#saldo
+            this.#saldo = 0
+            this.limiteChequeEspecial -= valorDoChequeEspecial
+            console.log(`Saque de R$ ${valor.toFixed(2)} realizado com sucesso utilizando o cheque especial.`)
+        }
+
     }
 }
 
-/*
-ContaPoupanca:
-dataAniversario
-renderJuros()
-Depositar()
-*/
+
 class ContaPoupanca extends ContaBancaria{
     #saldo
+    #titular
     constructor(numeroConta, titular, saldo=0, dataAniversario){
         super(numeroConta, titular, saldo)
         //atributo que só existe na subclasse
         this.dataAniversario = dataAniversario
     }
 
-    //definição dos métodos específicos da subclasse
     renderJuros(taxaJuros){
         const juros = this.#saldo * (taxaJuros / 100)
-        //icrementa o saldo com os juros calculados
         this.saldo += juros
         console.log(`Juros de R$ ${juros.toFixed(2)} aplicados à conta poupança.`)
-        //exibir o saldo usando o método herdado da superclasse
         this.exibirSaldo()
+    }
+
+    //sobrescrevendo o método exibirInformacoes da superclasse (Polimorfismo)
+    exibirInformacoes(){
+        console.log(`Conta Poupança: ${this.numeroConta}, Titular: ${this.#titular}, Saldo: R$ ${this.#saldo.toFixed(2)}, Data Aniversário: ${this.dataAniversario}`)
     }
 }
 
-/*
-ContaSalario:
-empresa
-*/
 
 class ContaSalario extends ContaBancaria{
     #saldo
+    #titular
     constructor(numeroConta, titular, saldo=0, empresa){
         super(numeroConta, titular, saldo)
         this.empresa = empresa
+    }
+    //sobrescrevendo o método exibirInformacoes da superclasse (Polimorfismo)
+    exibirInformacoes(){
+        console.log(`Conta Salário: ${this.numeroConta}, Titular: ${this.#titular}, Saldo: R$ ${this.#saldo.toFixed(2)}, Empresa: ${this.empresa}`)
     }
 }
 
@@ -130,24 +126,11 @@ const contaPoupanca1 = new ContaPoupanca("98765-4", "Maria Souza", 2000, "15/08"
 const contaSalario1 = new ContaSalario("54321-9", "Carlos Oliveira", 30000, "Google")
 
 const bancoDoCleitinho = [contaCorrente1, contaPoupanca1, contaSalario1]
-//objetos de classes diferentes armazenados em um array
-//todos esses objetos são instaciados de classes filhas da superclasse ContaBancaria, logo possuem em comum todos os atributos e métodos da superclasse
 
-//para todas as contas execute o método exibirSaldo()
+//exibir as informações de todas as contas no bancoDoCleitinho
 bancoDoCleitinho.forEach(conta => {
-    conta.exibirInformacoes()
+    conta.exibirInformacoes() //chama o método sobrescrito em cada subclasse
+    //caso não encontre o método na subclasse, ele chamará o método da superclasse(o mais genérico)
 })
 
-//o banco do cleitinho sofreu um ataque hacker e todos os clientes tiveram 2 reais roubados
-bancoDoCleitinho.forEach(conta => {
-    conta.sacar(2)
-})
 
-//as contas salario não podem fazer depósitos (pois não possuem esse método especifico)
-contaCorrente1.depositar(500)
-//contaSalario1.depositar(500) //vai gerar um erro pois esse método não existe na classe ContaSalario
-
-//FORA DOS MÉTODAS DA CLASSE : tentar acessar os atributos privados diretamente ocorrerá um erro
-console.log(contaCorrente1.saldo) // retorna undefined pois saldo é privado 
-//utiliza o método getter (getSaldo) para acessar o saldo por meio de um método público
-console.log(contaCorrente1.getSaldo()) //retorna o valor do saldo corretamente
