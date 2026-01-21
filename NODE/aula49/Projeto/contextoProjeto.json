@@ -1,0 +1,114 @@
+{
+  "projeto": {
+    "nome": "Sistema de Gerenciamento de Estacionamento",
+    "objetivo": "Desenvolver uma API em Node.js com Express para gerenciamento de um estacionamento acadêmico, com usuários, veículos, entradas/saídas, cálculo de valor e relatórios.",
+    "tecnologias": ["Node.js", "Express", "Sequelize", "MySQL", "JWT", "Bcrypt", "dotenv", "Nodemon"]
+  },
+  "requisitosFuncionais": [
+    "RF01 - Permitir login de usuários (Administrador e Funcionário)",
+    "RF02 - Administrador pode cadastrar usuários",
+    "RF03 - Administrador pode visualizar, editar e desativar usuários",
+    "RF04 - Cadastro de estacionamento (nome, endereço, quantidade de vagas)",
+    "RF05 - Definir tipos de vagas (carro, moto)",
+    "RF06 - Controlar quantidade de vagas disponíveis por tipo",
+    "RF07 - Cadastro de veículos (placa, modelo, cor, tipo)",
+    "RF08 - Impedir cadastro de veículos com placa duplicada",
+    "RF09 - Registrar entrada de veículos",
+    "RF10 - Registrar data e hora de entrada automaticamente",
+    "RF11 - Impedir entrada se não houver vagas disponíveis",
+    "RF12 - Registrar saída de veículos",
+    "RF13 - Registrar data e hora de saída automaticamente",
+    "RF14 - Calcular valor a ser pago (tempo + tipo de veículo)",
+    "RF15 - Registrar status de pagamento (pago / pendente)",
+    "RF16 - Listar veículos estacionados no momento",
+    "RF17 - Consultar histórico de entradas e saídas",
+    "RF18 - Consultar faturamento por período"
+  ],
+  "requisitosNaoFuncionais": [
+    "RNF01 - Autenticação JWT",
+    "RNF02 - Senhas criptografadas",
+    "RNF03 - Apenas usuários autenticados podem acessar rotas protegidas",
+    "RNF04 - Desenvolvido em Node.js com Express",
+    "RNF05 - Banco de dados MySQL",
+    "RNF06 - Sequelize para acesso ao banco",
+    "RNF07 - Configurações sensíveis em variáveis de ambiente",
+    "RNF08 - Arquitetura organizada em camadas",
+    "RNF09 - Fácil manutenção e extensão",
+    "RNF10 - Tratamento de erros padronizado"
+  ],
+  "entidades": [
+    {
+      "nome": "Usuario",
+      "atributos": ["id", "nome", "email", "senha", "perfil", "ativo", "created_at", "updated_at"],
+      "relacionamentos": ["1 → N Movimentacoes"]
+    },
+    {
+      "nome": "Estacionamento",
+      "atributos": ["id", "nome", "endereco", "total_vagas", "vagas_carro", "vagas_moto", "created_at", "updated_at"],
+      "relacionamentos": ["1 → N Movimentacoes", "1 → N TabelaPrecos"]
+    },
+    {
+      "nome": "Veiculo",
+      "atributos": ["id", "placa", "modelo", "cor", "tipo", "created_at", "updated_at"],
+      "relacionamentos": ["1 → N Movimentacoes"]
+    },
+    {
+      "nome": "Movimentacao",
+      "atributos": ["id", "veiculo_id", "usuario_id", "estacionamento_id", "entrada", "saida", "valor_total", "status_pagamento", "created_at", "updated_at"],
+      "relacionamentos": ["Pertence a Usuario, Veiculo, Estacionamento"]
+    },
+    {
+      "nome": "TabelaPrecos",
+      "atributos": ["id", "tipo_veiculo", "valor_hora", "estacionamento_id", "created_at", "updated_at"],
+      "relacionamentos": ["Pertence a Estacionamento"]
+    }
+  ],
+  "arquiteturaAPI": {
+    "camadas": ["Routes", "Controllers", "Services", "Models", "Banco de Dados"],
+    "middlewares": ["Autenticação JWT", "Autorização por perfil", "Tratamento de erros"],
+    "fluxoRequisicao": "Request → Routes → Controller → Service → Model → Banco de Dados"
+  },
+  "estruturaDiretorios": {
+    "src": {
+      "config": "Configurações do sistema (JWT, env, etc.)",
+      "database": "Conexão com banco e inicialização do Sequelize",
+      "models": "Models do Sequelize",
+      "routes": "Definição das rotas da API",
+      "controllers": "Controllers (req/res)",
+      "services": "Regras de negócio",
+      "middlewares": "Middlewares (JWT, permissões, erros)",
+      "utils": "Funções auxiliares reutilizáveis",
+      "app.js": "Configuração do Express",
+      "server.js": "Inicialização do servidor"
+    }
+  },
+  "bancoDeDados": [
+    {
+      "tabela": "usuarios",
+      "colunas": ["id (PK)", "nome", "email (unique)", "senha", "perfil", "ativo", "created_at", "updated_at"]
+    },
+    {
+      "tabela": "estacionamentos",
+      "colunas": ["id (PK)", "nome", "endereco", "total_vagas", "vagas_carro", "vagas_moto", "created_at", "updated_at"]
+    },
+    {
+      "tabela": "veiculos",
+      "colunas": ["id (PK)", "placa (unique)", "modelo", "cor", "tipo", "created_at", "updated_at"]
+    },
+    {
+      "tabela": "tabela_precos",
+      "colunas": ["id (PK)", "tipo_veiculo", "valor_hora", "estacionamento_id (FK)", "created_at", "updated_at"]
+    },
+    {
+      "tabela": "movimentacoes",
+      "colunas": ["id (PK)", "veiculo_id (FK)", "usuario_id (FK)", "estacionamento_id (FK)", "entrada", "saida", "valor_total", "status_pagamento", "created_at", "updated_at"]
+    }
+  ],
+  "regrasBanco": [
+    "Placa do veículo é única",
+    "Não pode haver duas movimentações abertas para o mesmo veículo",
+    "Movimentação precisa de veículo, usuário e estacionamento",
+    "Valor calculado apenas na saída",
+    "Integridade referencial garantida via FKs"
+  ]
+}
