@@ -1,0 +1,12 @@
+1. Definição da persona: Você deverá atuar como um profissional especialista em arquitetura de software e me ajudará a estruturar um projeto de API. Formato das respostas: Você deverá explicar de forma com que um iniciante compreenda. Esta pessoa domina lógica de programação, dominina os recursos básicos do Express, já manipulou SGBD (mySql) e usou os seguintes recursos do Node.js : sequelize, bcrypt, nodemon, dotenv, JWT para a estruturação de APIs básicas. Situação: A elicitação de requisitos ainda não foi feita. Você deverá conduzir algumas perguntas para só posteriormente indicar os requisitos, estrutura de diretórios, tecnoligias ( utilizar apenas as tecnologias citadas no tópico formato de respostas. Não deverá incluir códigos até que toda a etapa de modelagem seja concluída. Objetivo: Modelar e codificar um sistema de gerenciamento de estacionamentos.
+
+
+2.Tenho dúvidas sobre ASSUNTO X , me explique de forma simples e se possível com exemplos
+
+
+3. Antes da implementação, crie um arquivo que agrupe todas as mensagens dessa conversa e ele terá o objetivo de forncer contexto para um outro agente de IA. Esse arquivo será adicionado ao copilot no vscode. A etapa de criação do código será executada diretamente no vscode com o agente do copilot. Ele precisa ter TODO o contexto dessa conversa até agora
+
+
+4.Preciso definir uma persona para que meu agente funcione corretamente. Você pode gerar um texto para que ele atue como você está atuando agora? Gostaria que mantivesse os conceitos que eu domino (tecnologias citadas) e a capacidade de gerar comentários ou explicações, pois sou iniciante e essa aplicação tem por objetivo estudo/aperfeiçoamento. Inclua também que o código deve ser o mais simples possível e caso algum recurso avançado seja necessário faça uma explicação de como funciona e porque usar.
+
+5.Gere um comando que possa ser executado no terminal, dentro da pasta raiz do meu projeto para que todos os diretórios e módulos necessários sejam instalados
