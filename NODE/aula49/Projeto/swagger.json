@@ -1,0 +1,453 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API de Gerenciamento de Estacionamento Acadêmico",
+    "version": "1.0.0",
+    "description": "API para controle de usuários, veículos, entradas/saídas, cálculo de valores e relatórios de um estacionamento acadêmico."
+  },
+  "servers": [
+    { "url": "http://localhost:3000/api" }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "Usuario": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "nome": { "type": "string" },
+          "email": { "type": "string" },
+          "perfil": { "type": "string", "enum": ["Administrador", "Funcionario"] },
+          "ativo": { "type": "boolean" },
+          "created_at": { "type": "string", "format": "date-time" },
+          "updated_at": { "type": "string", "format": "date-time" }
+        }
+      },
+      "Veiculo": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "placa": { "type": "string" },
+          "modelo": { "type": "string" },
+          "cor": { "type": "string" },
+          "tipo": { "type": "string", "enum": ["carro", "moto"] },
+          "created_at": { "type": "string", "format": "date-time" },
+          "updated_at": { "type": "string", "format": "date-time" }
+        }
+      },
+      "Estacionamento": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "nome": { "type": "string" },
+          "endereco": { "type": "string" },
+          "total_vagas": { "type": "integer" },
+          "vagas_carro": { "type": "integer" },
+          "vagas_moto": { "type": "integer" },
+          "created_at": { "type": "string", "format": "date-time" },
+          "updated_at": { "type": "string", "format": "date-time" }
+        }
+      },
+      "TabelaPrecos": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "tipo_veiculo": { "type": "string", "enum": ["carro", "moto"] },
+          "valor_hora": { "type": "number", "format": "float" },
+          "estacionamento_id": { "type": "integer" },
+          "created_at": { "type": "string", "format": "date-time" },
+          "updated_at": { "type": "string", "format": "date-time" }
+        }
+      },
+      "Movimentacao": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "veiculo_id": { "type": "integer" },
+          "usuario_id": { "type": "integer" },
+          "estacionamento_id": { "type": "integer" },
+          "entrada": { "type": "string", "format": "date-time" },
+          "saida": { "type": "string", "format": "date-time" },
+          "valor_total": { "type": "number", "format": "float" },
+          "status_pagamento": { "type": "string", "enum": ["pago", "pendente"] },
+          "created_at": { "type": "string", "format": "date-time" },
+          "updated_at": { "type": "string", "format": "date-time" }
+        }
+      }
+    }
+  },
+  "security": [
+    { "bearerAuth": [] }
+  ],
+  "paths": {
+    "/auth/login": {
+      "post": {
+        "summary": "Login de usuário",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": { "type": "string" },
+                  "senha": { "type": "string" }
+                },
+                "required": ["email", "senha"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Token JWT e dados do usuário",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": { "type": "string" },
+                    "usuario": { "$ref": "#/components/schemas/Usuario" }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "description": "Credenciais inválidas" }
+        }
+      }
+    },
+    "/usuarios": {
+      "get": {
+        "summary": "Listar usuários (admin)",
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": {
+            "description": "Lista de usuários",
+            "content": { "application/json": { "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Usuario" } } } }
+          }
+        }
+      },
+      "post": {
+        "summary": "Cadastrar usuário (admin)",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Usuario" }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Usuário criado" },
+          "400": { "description": "Erro de validação" }
+        }
+      }
+    },
+    "/usuarios/{id}": {
+      "get": {
+        "summary": "Buscar usuário por ID (admin)",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": {
+          "200": { "description": "Usuário encontrado" },
+          "404": { "description": "Usuário não encontrado" }
+        }
+      },
+      "put": {
+        "summary": "Atualizar usuário (admin)",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Usuario" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Usuário atualizado" },
+          "400": { "description": "Erro de validação" }
+        }
+      },
+      "delete": {
+        "summary": "Desativar usuário (admin)",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": {
+          "200": { "description": "Usuário desativado" },
+          "404": { "description": "Usuário não encontrado" }
+        }
+      }
+    },
+    "/estacionamentos": {
+      "get": {
+        "summary": "Listar estacionamentos",
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": { "description": "Lista de estacionamentos" }
+        }
+      },
+      "post": {
+        "summary": "Cadastrar estacionamento",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Estacionamento" }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Estacionamento criado" },
+          "400": { "description": "Erro de validação" }
+        }
+      }
+    },
+    "/veiculos": {
+      "get": {
+        "summary": "Listar veículos",
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": { "description": "Lista de veículos" }
+        }
+      },
+      "post": {
+        "summary": "Cadastrar veículo",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Veiculo" }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Veículo cadastrado" },
+          "400": { "description": "Erro de validação" }
+        }
+      }
+    },
+    "/veiculos/{id}": {
+      "get": {
+        "summary": "Buscar veículo por ID",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": {
+          "200": { "description": "Veículo encontrado" },
+          "404": { "description": "Veículo não encontrado" }
+        }
+      },
+      "put": {
+        "summary": "Atualizar veículo",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Veiculo" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Veículo atualizado" },
+          "400": { "description": "Erro de validação" }
+        }
+      },
+      "delete": {
+        "summary": "Deletar veículo",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": {
+          "200": { "description": "Veículo deletado" },
+          "404": { "description": "Veículo não encontrado" }
+        }
+      }
+    },
+    "/movimentacoes/entrada": {
+      "post": {
+        "summary": "Registrar entrada de veículo",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "veiculo_id": { "type": "integer" },
+                  "usuario_id": { "type": "integer" },
+                  "estacionamento_id": { "type": "integer" }
+                },
+                "required": ["veiculo_id", "usuario_id", "estacionamento_id"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Movimentação registrada" },
+          "400": { "description": "Erro de validação ou sem vagas" }
+        }
+      }
+    },
+    "/movimentacoes/saida": {
+      "post": {
+        "summary": "Registrar saída de veículo",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "veiculo_id": { "type": "integer" },
+                  "usuario_id": { "type": "integer" }
+                },
+                "required": ["veiculo_id", "usuario_id"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Saída registrada e valor calculado" },
+          "400": { "description": "Erro de validação" }
+        }
+      }
+    },
+    "/movimentacoes/estacionados": {
+      "get": {
+        "summary": "Listar veículos estacionados",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "estacionamento_id", "in": "query", "schema": { "type": "integer" } }
+        ],
+        "responses": {
+          "200": { "description": "Lista de veículos estacionados" }
+        }
+      }
+    },
+    "/movimentacoes/historico": {
+      "get": {
+        "summary": "Consultar histórico de movimentações",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "estacionamento_id", "in": "query", "schema": { "type": "integer" } },
+          { "name": "data_inicio", "in": "query", "schema": { "type": "string", "format": "date-time" } },
+          { "name": "data_fim", "in": "query", "schema": { "type": "string", "format": "date-time" } }
+        ],
+        "responses": {
+          "200": { "description": "Histórico de movimentações" }
+        }
+      }
+    },
+    "/movimentacoes/faturamento": {
+      "get": {
+        "summary": "Consultar faturamento por período",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "estacionamento_id", "in": "query", "schema": { "type": "integer" } },
+          { "name": "data_inicio", "in": "query", "schema": { "type": "string", "format": "date-time" } },
+          { "name": "data_fim", "in": "query", "schema": { "type": "string", "format": "date-time" } }
+        ],
+        "responses": {
+          "200": { "description": "Faturamento total e quantidade de movimentações" }
+        }
+      }
+    },
+    "/precos": {
+      "get": {
+        "summary": "Listar preços por estacionamento",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "estacionamento_id", "in": "query", "schema": { "type": "integer" } }
+        ],
+        "responses": {
+          "200": { "description": "Lista de preços" }
+        }
+      },
+      "post": {
+        "summary": "Cadastrar preço para tipo de veículo",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/TabelaPrecos" }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Preço cadastrado" },
+          "400": { "description": "Erro de validação" }
+        }
+      }
+    },
+    "/precos/{id}": {
+      "get": {
+        "summary": "Buscar preço por ID",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": {
+          "200": { "description": "Preço encontrado" },
+          "404": { "description": "Preço não encontrado" }
+        }
+      },
+      "put": {
+        "summary": "Atualizar preço",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/TabelaPrecos" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Preço atualizado" },
+          "400": { "description": "Erro de validação" }
+        }
+      },
+      "delete": {
+        "summary": "Deletar preço",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": {
+          "200": { "description": "Preço deletado" },
+          "404": { "description": "Preço não encontrado" }
+        }
+      }
+    }
+  }
+}
